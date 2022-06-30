@@ -32,18 +32,18 @@ router.get('/:email', async (req, res) => {
 router.put('/:email', (req, res) => {
     const newUser = User(req.body)
     User.findOne({ email: req.params.email }, (err, data) => {
-        if (data) {
+        if (!data) {
             newUser.save((err, data) => {
                 if (err) {
                     res.status(500).send({ message: "Server Side Problem" })
                 }
                 else {
-                    res.status(200).send(data)
+                    res.status(200).send({ message: "user Added" })
                 }
             })
         }
         else {
-            res.status(200).send(err)
+            res.status(200).json({ message: "User Alrady exist" })
         }
     })
 

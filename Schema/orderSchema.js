@@ -6,6 +6,10 @@ const orderSchema = mongoose.Schema({
         type: Object,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+    },
     position: {
         type: String,
         default: "Pending"

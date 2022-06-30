@@ -31,7 +31,7 @@ router.get('/:email', async (req, res) => {
 
 router.post('/', (req, res) => {
     const newOrder = Order(req.body)
-    console.log(newOrder)
+    // console.log(newOrder)
     newOrder.save((err, data) => {
         if (err) {
             res.status(500).send({ message: "Server Side Problem" })
