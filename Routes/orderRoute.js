@@ -17,9 +17,9 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/:email', async (req, res) => {
-    const email = req.params.email
-    Order.findOne({ email: email }, (err, data) => {
+router.get('/:id', async (req, res) => {
+    const id = req.params.id
+    Order.findOne({ _id: id }, (err, data) => {
         if (err) {
             res.status(500).json({ error: "Server Side Error" })
         }
@@ -42,9 +42,9 @@ router.post('/', (req, res) => {
     })
 })
 
-router.delete('/:email', async (req, res) => {
-    const email = req.params.email
-    Order.deleteOne({ email: email }, (err) => {
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id
+    Order.deleteOne({ _id: id }, (err) => {
         if (err) {
             res.status(500).json({ error: "Server Side Error" })
         }
