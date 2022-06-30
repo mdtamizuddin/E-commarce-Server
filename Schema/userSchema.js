@@ -4,11 +4,12 @@ const mongoose = require('mongoose')
 const userSchema = mongoose.Schema({
     user: {
         type: Array,
-        required: true
+        required: true,
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     date: {
         type: Date,

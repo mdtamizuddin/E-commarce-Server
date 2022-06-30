@@ -31,23 +31,14 @@ router.get('/:email', async (req, res) => {
 
 router.put('/:email', (req, res) => {
     const newUser = User(req.body)
-    User.findOne({ email: req.params.email }, (err, data) => {
-        if (!data) {
-            newUser.save((err, data) => {
-                if (err) {
-                    res.status(500).send({ message: "Server Side Problem" })
-                }
-                else {
-                    res.status(200).send({ message: "user Added" })
-                }
-            })
+    newUser.save((err, data) => {
+        if (err) {
+            res.status(500).send({ message: "Server Side Problem" })
         }
         else {
-            res.status(200).json({ message: "User Alrady exist" })
+            res.status(200).send({ message: "user Added" })
         }
     })
-
-
 })
 
 router.put('/admin/:email', async (req, res) => {
