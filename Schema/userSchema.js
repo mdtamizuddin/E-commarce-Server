@@ -6,6 +6,10 @@ const userSchema = mongoose.Schema({
         type: Array,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now
