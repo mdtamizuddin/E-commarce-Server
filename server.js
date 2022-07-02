@@ -20,6 +20,7 @@ mongoose.connect(uri, {
 app.use('/users', require('./Routes/userRouter'))
 app.use('/orders', require('./Routes/orderRoute'))
 app.use('/products', require('./Routes/productRouter'))
+app.use('/reviews', require('./Routes/reviewRouter'))
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
